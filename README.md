@@ -32,6 +32,11 @@ npx cypress open
 Run this command in another terminal and make sure you are running project in localhost at
 http://localhost:5173/ before running tests
 
+- After cypress window opens select E2E testing
+- Select your prefered browser and click on Start E2E testing button
+- Click on the file `appFlow.cy.js` in E2E specs section on Specs page.
+- A basic test will be performed after the click
+
 ### Build for Production
 
 ```bash
