@@ -1,14 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import ProductCard from "../components/ProductCard";
 
-interface Product {
+export interface Product {
   id: number;
   title: string;
-  description: string;
   price: number;
   image: string;
-  category: string;
 }
 
 export interface CartItem extends Product {
@@ -134,28 +133,7 @@ const HomePage = () => {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((product) => (
-                <article
-                  key={product.id}
-                  className="border rounded-lg p-4 shadow hover:shadow-md transition"
-                  aria-label={`Product: ${product.title}`}
-                >
-                  <Link
-                    to={`/product/${product.id}`}
-                    aria-label={`View details for ${product.title}`}
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-48 object-contain mb-2"
-                    />
-                    <h3 className="text-sm font-medium mb-1">
-                      {product.title}
-                    </h3>
-                    <p className="font-semibold text-gray-700">
-                      ${product.price}
-                    </p>
-                  </Link>
-                </article>
+                <ProductCard key={product.id} {...product} />
               ))}
             </div>
           )}
